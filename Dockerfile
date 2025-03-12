@@ -12,7 +12,7 @@ RUN yarn install
 COPY . .
 
 # 5. 포트 설정
-EXPOSE 3000
+EXPOSE 4000
 
 # 6. Next.js 서버 실행
 CMD ["yarn", "dev"]
