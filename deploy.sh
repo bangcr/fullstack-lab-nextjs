@@ -7,6 +7,7 @@ git pull origin main
 
 # 의존성 설치 및 빌드
 yarn install
+yarn add --dev eslint @eslint/eslintrc eslint-config-next
 yarn build
 
 # 도커 재배포
