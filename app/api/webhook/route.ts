@@ -26,8 +26,15 @@ function verifySignature(payload: string, signature: string): boolean {
 // 배포 스크립트 실행
 async function deploy() {
   try {
+    // 작업 디렉토리 변경사항 처리
+    await execAsync('git stash');  // 현재 변경사항 임시 저장
+    
     // Git pull
     await execAsync('git pull origin main');
+    
+    // stash 복원 (필요한 경우)
+    await execAsync('git stash pop || true');  // stash가 없어도 에러 발생하지 않음
+    
     // 의존성 설치
     await execAsync('yarn install');
     // 빌드
@@ -35,7 +42,7 @@ async function deploy() {
     // Docker 이미지 빌드 및 재시작
     await execAsync('docker build -t nextjs-app .');
     await execAsync('docker stop nextjs-app || true');
-    await execAsync('docker run -d --name nextjs-app -p 4000:4000 nextjs-app');
+    await execAsync('docker run -d --name nextjs-app -p 4000:4000 --env-file .env nextjs-app');
     
     console.log('Deployment completed successfully');
     return true;
