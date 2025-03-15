@@ -10,14 +10,5 @@ yarn install
 yarn add --dev eslint @eslint/eslintrc eslint-config-next
 yarn build
 
-# 도커 재배포
-docker build -t nextjs-app .
-docker stop nextjs-app || true
-docker rm nextjs-app || true
-docker run -d \
-  --name nextjs-app \
-  -p 4000:4000 \
-  --env-file .env \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v "$(pwd)":/app \
-  nextjs-app 
+# Next.js 앱 재시작
+yarn start 
