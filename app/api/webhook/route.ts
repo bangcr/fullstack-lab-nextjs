@@ -26,14 +26,12 @@ function verifySignature(payload: string, signature: string): boolean {
 // 배포 스크립트 실행
 async function deploy() {
   try {
-    // 작업 디렉토리 변경사항 처리
-    await execAsync('git stash');  // 현재 변경사항 임시 저장
+    // 모든 로컬 변경사항 강제로 제거
+    await execAsync('git reset --hard');
+    await execAsync('git clean -fd');
     
     // Git pull
     await execAsync('git pull origin main');
-    
-    // stash 복원 (필요한 경우)
-    await execAsync('git stash pop || true');  // stash가 없어도 에러 발생하지 않음
     
     // 의존성 설치
     await execAsync('yarn install');
