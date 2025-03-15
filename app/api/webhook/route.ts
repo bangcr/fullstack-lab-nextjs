@@ -6,7 +6,10 @@ import { promisify } from 'util';
 const execAsync = promisify(exec);
 
 // GitHub webhook 시크릿 (환경 변수에서 가져와야 함)
-const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+const WEBHOOK_SECRET = process.env.NEXT_WEBHOOK_SECRET;
+
+// 환경변수 로깅 (디버깅용)
+console.log('Webhook Secret:', WEBHOOK_SECRET);
 
 // GitHub webhook 서명 검증
 function verifySignature(payload: string, signature: string): boolean {

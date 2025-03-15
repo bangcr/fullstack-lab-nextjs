@@ -11,8 +11,11 @@ RUN yarn install
 # 4. 전체 소스 복사
 COPY . .
 
-# 5. 포트 설정
+# 5. 환경 변수 설정
+ENV NEXT_WEBHOOK_SECRET=${NEXT_WEBHOOK_SECRET}
+
+# 6. 포트 설정
 EXPOSE 4000
 
-# 6. Next.js 서버 실행
+# 7. Next.js 서버 실행
 CMD ["yarn", "dev"]
