@@ -26,8 +26,8 @@ function verifySignature(payload: string, signature: string): boolean {
 // 배포 스크립트 실행
 async function deploy() {
   try {
-    // Windows에서 Git Bash를 통해 스크립트 실행
-    await execAsync('"C:\\Program Files\\Git\\bin\\bash.exe" deploy.sh');
+    // 스크립트 실행 (컨테이너 내부에서는 기본 bash 사용)
+    await execAsync('/bin/bash deploy.sh');
     
     console.log('Deployment completed successfully');
     return true;
