@@ -10,8 +10,7 @@ yarn install
 yarn add --dev eslint @eslint/eslintrc eslint-config-next
 yarn build
 
-# 기존 Next.js 프로세스 종료
-pkill -f "next start" || true
+# 도커 컨테이너 재시작
+docker restart nextjs-app
 
-# Next.js 앱 재시작
-yarn start 
+echo "Deployment completed. Container restarted." 
