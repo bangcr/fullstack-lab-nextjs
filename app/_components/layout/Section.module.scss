@@ -1,0 +1,60 @@
+@import "@/styles/variables";
+
+.section {
+    background-color: aliceblue;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    padding: 7.5rem 0;
+    height: auto;
+
+
+    @media screen and (max-width: 1200px) {
+        padding: 2.5rem 1.25rem;
+       }
+ 
+     @media screen and (max-width: 767px) {
+        padding: 2.5rem 1.25rem;
+       }
+}
+
+
+.deepRed {
+    background-color: $monza-900;
+}
+
+.lightGray {
+background-color: $neutral-gray-15;
+}
+
+.darkGray {
+background-color: $neutral-gray-60;
+}
+
+.pureBlack {
+background-color: $pure-black;
+}
+
+.pureWhite {
+background-color: $pure-white;
+}
+
+.purple {
+background-color: $point-color-1;
+}
+
+.yellow {
+    background-color: $point-color-2;
+}
+
+
+.constructionSite {
+    background-image: url("/image/background/construction_site.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40rem;
+    width: 100%;
+    padding: 3rem 0;
+}

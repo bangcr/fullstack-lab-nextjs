@@ -1,0 +1,36 @@
+@import "@/styles/variables";
+
+.button {
+    width: 23.75rem;
+    height: 5.5rem;
+    border-radius: .75rem;
+    background: var(--gra2, linear-gradient(96deg, #F3653C 1.74%, #D51313 104.09%));
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    > span {
+        color: $pure-white;
+        font-family: "gmarketSansBold";
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 100%; /* 32px */
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 13.75rem;
+        height: 3.75rem;
+
+        > span {
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 100%; /* 18px */
+        }
+      }
+    
+      @media screen and (max-width: 767px) {
+        width: 13.75rem;
+        height: 3.75rem;
+      }
+}
