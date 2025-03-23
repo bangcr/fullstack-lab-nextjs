@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack -p 4000",
     "build": "next build",
     "start": "next start -p 4000",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:run": "docker run -d --name nextjs-app -p 4000:4000 --env-file .env nextjs-app",
+    "docker:restart": "docker restart nextjs-app",
+    "docker:stop": "docker stop nextjs-app",
+    "docker:rm": "docker rm nextjs-app",
+    "docker:logs": "docker logs nextjs-app"
   },
   "dependencies": {
     "crypto": "^1.0.1",
