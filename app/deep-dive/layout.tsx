@@ -1,7 +1,13 @@
 import React from "react";
+import Inner from "../_components/layout/Inner";
+import SideBarContainer from "../_components/layout/SideBarContainer";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
-  return <div>딥디브 레이아웃{children}</div>;
+  return (
+    <Inner>
+      <SideBarContainer>{children}</SideBarContainer>
+    </Inner>
+  );
 };
 
 export default layout;

@@ -5,7 +5,6 @@ import styles from "./Header.module.scss";
 import Inner from "../layout/Inner";
 import { HeaderLogo } from "@/lib/constants/imagePath";
 import Image from "next/image";
-import ThemeToggle from "../atoms/ThemeToggle";
 
 const Header = () => {
   return (
@@ -66,7 +65,6 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            <ThemeToggle />
           </div>
         </nav>
       </Inner>

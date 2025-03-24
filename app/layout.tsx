@@ -6,7 +6,7 @@ import HeaderMobile from "./_components/gnb/HeaderMobile";
 import OutletContainer from "./_components/layout/OutletContainer";
 import Footer from "./_components/gnb/Footer";
 import localFont from "next/font/local";
-import { ThemeProvider } from "./_context/ThemeContext";
+import { GeistSans } from "geist/font/sans";
 
 const Pretendard = localFont({
   src: "../styles/fonts/PretendardVariable.woff2",
@@ -39,14 +39,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Pretendard.className} ${gmarketSansBold.variable} ${gmarketSansMedium.variable} ${gmarketSansLight.variable}`}
+        // className={`${Pretendard.className} ${gmarketSansBold.className} ${gmarketSansMedium.className} ${gmarketSansLight.className}`}
+        className={`${GeistSans.className}}`}
       >
-        <ThemeProvider>
-          <Header />
-          <HeaderMobile />
-          <OutletContainer>{children}</OutletContainer>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <HeaderMobile />
+        <OutletContainer>{children}</OutletContainer>
+        <Footer />
       </body>
     </html>
   );
