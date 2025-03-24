@@ -1,13 +1,18 @@
 export const navList = [
-    {text:"좋은 코드에 대한 고뇌" ,path: null, children:[
-        {text: "Web", path:"/oneandone-sparta-residential/learning-management"},
-        {text: "Server / DB", path:"/oneandone-sparta-residential/living-environment"},
-        {text: "App", path:"/oneandone-sparta-residential/solutions"},
+    {text:"Deep Dive" ,path: null, children:[
+        {text: "Java Script", path:"/deep-dive/javascript"},
+        {text: "React", path:"/deep-dive/react"},
+        {text: "Next.js", path:"/deep-dive/nextjs"},
+        {text: "React Native", path:"/deep-dive/react-native"},
     ]},
-    {text:"기능 실험실" ,path: null, children:[
-        {text: "학습 관리", path:"/spartasam-academy/learning-management"},
-        {text: "생활 환경", path:"/spartasam-academy/living-environment"},
-        {text: "스파르타 솔루션", path:"/spartasam-academy/solutions"},
+    {text:"Tech Lab" ,path: null, children:[
+        {text: "Web", path:"/tech-lab/web"},
+        {text: "Server / DB", path:"/tech-lab/server-db"},
+        {text: "App", path:"/tech-lab/app"},
+    ]},
+    {text:"Story Book" ,path: null, children:[
+        {text: "Atom", path:"/story-book/atom"},
+        {text: "Molecule", path:"/story-book/molecule"},
     ]},
     {text:"Velog" ,path: "https://velog.io/@bcl0206/posts", children:null},
     {text:"Github" ,path: "https://github.com/bangcr", children:null},

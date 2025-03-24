@@ -5,6 +5,7 @@ import styles from "./Header.module.scss";
 import Inner from "../layout/Inner";
 import { HeaderLogo } from "@/lib/constants/imagePath";
 import Image from "next/image";
+import ThemeToggle from "../atoms/ThemeToggle";
 
 const Header = () => {
   return (
@@ -21,43 +22,52 @@ const Header = () => {
               />
             </Link>
           </div>
-          <ul className={styles.navList}>
-            {navList.map((item, idx) => (
-              <li key={idx} className={styles.navItem}>
-                {item.children ? (
-                  <>
-                    <span>{item.text}</span>
-                    <div className={styles.subMenu}>
-                      <ul>
-                        {item.children.map((subItem, subIdx) => (
-                          <li key={subIdx}>
-                            <Link
-                              className={styles.subMenuItem}
-                              href={subItem.path}
-                            >
-                              {subItem.text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    href={item.path}
-                    {...(item.path.includes("http")
-                      ? {
-                          target: "_blank",
-                          rel: "noopener noreferrer",
-                        }
-                      : {})}
-                  >
-                    {item.text}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
+          <div className={styles.rightSection}>
+            <ul className={styles.navList}>
+              {navList.map((item, idx) => (
+                <li key={idx} className={styles.navItem}>
+                  {item.children ? (
+                    <>
+                      <span>{item.text}</span>
+                      <div className={styles.subMenu}>
+                        <ul>
+                          {item.children.map((subItem, subIdx) => (
+                            <li key={subIdx}>
+                              <Link
+                                className={styles.subMenuItem}
+                                href={subItem.path}
+                                {...(subItem.path.includes("http")
+                                  ? {
+                                      target: "_blank",
+                                      rel: "noopener noreferrer",
+                                    }
+                                  : {})}
+                              >
+                                {subItem.text}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.path}
+                      {...(item.path.includes("http")
+                        ? {
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                          }
+                        : {})}
+                    >
+                      {item.text}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle />
+          </div>
         </nav>
       </Inner>
     </header>
