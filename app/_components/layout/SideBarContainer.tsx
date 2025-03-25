@@ -3,11 +3,20 @@ import Inner from "./Inner";
 import SideBar from "../lnb/SideBar";
 import ContentArea from "../lnb/ContentArea";
 import styles from "./SideBarContainer.module.scss";
+import AccordionMenu from "../AccordionMenu";
 
-const SideBarContainer = ({ children }: { children: React.ReactNode }) => {
+const SideBarContainer = ({
+  children,
+  sideBarData,
+}: {
+  children: React.ReactNode;
+  sideBarData: any;
+}) => {
   return (
     <div className={styles.container}>
-      <SideBar>사이드 바</SideBar>
+      <SideBar>
+        <AccordionMenu menuData={sideBarData} />
+      </SideBar>
       <ContentArea>{children}</ContentArea>
     </div>
   );

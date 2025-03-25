@@ -1,0 +1,66 @@
+
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+    color: #a1a1a1;
+    transition: color 0.15s ease-in-out;
+}
+
+.parentItem {
+    padding: .25rem .5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+        color: #fff;
+
+    img {
+        filter: invert(100%); // hover 시 흰색으로
+    }
+}
+}
+
+.childMenuItem{
+    display: flex;
+    margin: 0 1rem;
+    padding-left: .75rem;
+    border-left: .0625rem solid #fff;
+    overflow: hidden;
+    transition: height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    height: 2rem;
+
+    &.close {
+        height: 0; 
+        opacity: 0;
+    }
+}
+
+.childItem {
+    padding: .25rem .5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &.close {
+        display: none;
+    }
+
+    &:hover {
+        color: #fff;
+
+    img {
+        filter: invert(100%); // hover 시 흰색으로
+    }
+}
+}
+
+
+
+
+
+
+
+
