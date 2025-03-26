@@ -3,15 +3,22 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 interface Props {
-  text: string;
-  icon?: string;
+  children: React.ReactNode;
+  iconLeft?: string;
+  iconRight?: string;
+  onClick?: () => void;
+  theme?: "black" | "white";
 }
 
-const Button = ({ text, icon }: Props) => {
+const Button = ({ children, iconLeft, iconRight, theme, onClick }: Props) => {
   return (
-    <button className={styles.button}>
-      <span>{text}</span>
-      {icon && <Image src={icon} alt="" width={24} height={24} />}
+    <button
+      className={`${styles.button} ${theme && styles[theme]}`}
+      onClick={onClick}
+    >
+      {iconLeft && <Image src={iconLeft} alt="" width={24} height={24} />}
+      <span>{children}</span>
+      {iconRight && <Image src={iconRight} alt="" width={24} height={24} />}
     </button>
   );
 };

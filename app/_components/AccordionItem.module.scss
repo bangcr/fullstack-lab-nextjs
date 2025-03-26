@@ -16,11 +16,20 @@
 
     &:hover {
         color: #fff;
+        background-color: #21242B;
+        border-radius: 0.25rem;
+        cursor: grab;
 
     img {
         filter: invert(100%); // hover 시 흰색으로
     }
 }
+}
+
+.parentItemContent {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .childMenuItem{
@@ -38,6 +47,12 @@
     }
 }
 
+.childItemContent{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
 .childItem {
     padding: .25rem .5rem;
     width: 100%;
@@ -50,6 +65,9 @@
 
     &:hover {
         color: #fff;
+        background-color: #21242B;
+        border-radius: 0.25rem;
+        cursor: grab;
 
     img {
         filter: invert(100%); // hover 시 흰색으로

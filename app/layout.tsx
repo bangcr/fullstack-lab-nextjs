@@ -41,6 +41,7 @@ export default function RootLayout({
       <body
         // className={`${Pretendard.className} ${gmarketSansBold.className} ${gmarketSansMedium.className} ${gmarketSansLight.className}`}
         className={`${GeistSans.className}}`}
+        style={{ backgroundColor: "#111" }}
       >
         <Header />
         <HeaderMobile />

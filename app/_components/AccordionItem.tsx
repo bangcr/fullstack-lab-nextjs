@@ -4,7 +4,11 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./AccordionItem.module.scss";
-import { IconCaretDownGray, IconCaretUpGray } from "@/lib/constants/imagePath";
+import {
+  IconCaretDownGray,
+  IconCaretUpGray,
+  IconMoveHandler,
+} from "@/lib/constants/imagePath";
 import Image from "next/image";
 interface MenuItem {
   id: number;
@@ -15,11 +19,12 @@ interface MenuItem {
   children?: MenuItem[] | null;
 }
 
-interface AccordionItemProps {
+interface Props {
   item: MenuItem;
+  editMode: boolean;
 }
 
-export const AccordionItem = ({ item }: AccordionItemProps) => {
+export const AccordionItem = ({ item, editMode }: Props) => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   if (!item.children) {
@@ -35,7 +40,12 @@ export const AccordionItem = ({ item }: AccordionItemProps) => {
               }
             : {})}
         >
-          {item.text}
+          <div className={styles.parentItemContent}>
+            {editMode && (
+              <Image src={IconMoveHandler} alt="icon" width={12} height={12} />
+            )}
+            <span>{item.text}</span>
+          </div>
         </Link>
       </li>
     );
@@ -44,7 +54,12 @@ export const AccordionItem = ({ item }: AccordionItemProps) => {
   return (
     <li className={styles.menuItem}>
       <p className={styles.parentItem} onClick={() => setIsOpen(!isOpen)}>
-        <span>{item.text}</span>
+        <div className={styles.parentItemContent}>
+          {editMode && (
+            <Image src={IconMoveHandler} alt="icon" width={12} height={12} />
+          )}
+          <span>{item.text}</span>
+        </div>
         <Image
           src={isOpen ? IconCaretUpGray : IconCaretDownGray}
           alt="icon"
@@ -59,7 +74,17 @@ export const AccordionItem = ({ item }: AccordionItemProps) => {
             className={`${styles.childMenuItem} ${!isOpen ? styles.close : ""}`}
           >
             <Link href={child.path || "#"} className={styles.childItem}>
-              {child.text}
+              <div className={styles.childItemContent}>
+                {editMode && (
+                  <Image
+                    src={IconMoveHandler}
+                    alt="icon"
+                    width={12}
+                    height={12}
+                  />
+                )}
+                <span>{child.text}</span>
+              </div>
             </Link>
           </li>
         ))}

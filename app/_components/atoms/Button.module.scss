@@ -1,36 +1,48 @@
-@import "@/styles/variables";
+@import "@/styles/_variables.scss";
 
 .button {
-    width: 23.75rem;
-    height: 5.5rem;
-    border-radius: .75rem;
-    background: var(--gra2, linear-gradient(96deg, #F3653C 1.74%, #D51313 104.09%));
+    // width: 23.75rem;
+    // height: 5.5rem;
+    border-radius: .375rem;
     display: flex;
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem 0.8rem;
 
     > span {
         color: $pure-white;
-        font-family: "gmarketSansBold";
-        font-size: 2rem;
-        font-weight: 700;
+        font-family: "GeistSans";
+        font-size: 0.875rem;
+        font-weight: 600;
         line-height: 100%; /* 32px */
     }
 
     @media screen and (max-width: 1200px) {
-        width: 13.75rem;
-        height: 3.75rem;
+        // width: 13.75rem;
+        // height: 3.75rem;
 
-        > span {
-            font-size: 1.125rem;
-            font-weight: 700;
-            line-height: 100%; /* 18px */
-        }
+        // > span {
+        //     font-size: 1.125rem;
+        //     font-weight: 700;
+        //     line-height: 100%; /* 18px */
+        // }
       }
     
       @media screen and (max-width: 767px) {
-        width: 13.75rem;
-        height: 3.75rem;
+        // width: 13.75rem;
+        // height: 3.75rem;
       }
+}
+
+.black {
+    background: $pure-black;
+    color: $pure-white;
+    border: 1px solid $pure-white;
+}
+
+.white {
+    background: $pure-white;
+    color: $pure-black;
+    border: 1px solid $pure-black;
 }

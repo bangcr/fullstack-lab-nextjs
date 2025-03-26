@@ -3,10 +3,15 @@
     font-family: "GeistSans";
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .menuTitle {
     font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 1rem;
 }
 
 .groupItem {
@@ -14,9 +19,21 @@
 }
 
 .groupTitle {
-    padding: .25rem .5rem;
+    padding: .25rem 0;
     font-size: 1rem;
     font-weight: 600;
+}
+
+.groupItemContent{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    &:hover {
+        background-color: #21242B;
+        border-radius: 0.25rem;
+        cursor: grab;
+    }
 }
 
 
