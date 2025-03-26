@@ -16,6 +16,12 @@
 
 .groupItem {
     margin: 1rem 0;
+    
+    &.dragging {
+        opacity: 0.5;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+      }
 }
 
 .groupTitle {
@@ -28,6 +34,7 @@
     display: flex;
     align-items: center;
     gap: 0.2rem;
+    
 
     &:hover {
         background-color: #21242B;
