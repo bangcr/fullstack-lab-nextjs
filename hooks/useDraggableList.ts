@@ -11,15 +11,19 @@ export const useDraggableList = <T>({ initialItems, isEnabled, dragClassName = '
   const [items, setItems] = useState<T[]>(initialItems);
   const [draggedItem, setDraggedItem] = useState<number | null>(null);
 
-  const handleDragStart = (index: number) => {
-    if (!isEnabled) return;
+  const handleDragStart = (e: React.DragEvent, index: number) => {
+      if (!isEnabled) return;
+      e.stopPropagation();
+
+      console.log('index',index);
+      
     
     setDraggedItem(index);
     const draggedElement = document.querySelector(`[data-index="${index}"]`);
     draggedElement?.classList.add(dragClassName);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = (e: React.DragEvent) => {
     if (!isEnabled) return;
 
     document.querySelectorAll(`.${dragClassName}`).forEach((element) => {

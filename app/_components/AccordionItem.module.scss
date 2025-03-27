@@ -5,6 +5,12 @@
     font-size: 0.875rem;
     color: #a1a1a1;
     transition: color 0.15s ease-in-out;
+
+    &.dragging {
+        opacity: 0.5;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+      }
 }
 
 .parentItem {
@@ -45,6 +51,7 @@
         height: 0; 
         opacity: 0;
     }
+
 }
 
 .childItemContent{
@@ -72,7 +79,14 @@
     img {
         filter: invert(100%); // hover 시 흰색으로
     }
+
+    
 }
+&.dragging {
+    opacity: 0.5;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+  }
 }
 
 

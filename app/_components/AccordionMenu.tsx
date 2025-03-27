@@ -10,23 +10,17 @@ import { useDraggableList } from "@/hooks/useDraggableList";
 
 interface MenuItem {
   id: number;
-  type: "menu" | "subMenu" | "groupTitle";
+  parentId: number | null;
+  type: "menu" | "subMenu" | "group";
   text: string;
   path: string | null;
-  parentId?: number;
-  children?: MenuItem[] | null;
-}
-
-interface MenuGroup {
-  groupTitle: string;
-  children: MenuItem[];
+  children: MenuItem[] | null;
 }
 
 interface DataStructure {
   title: string;
-  menu: MenuGroup[];
+  menu: MenuItem[];
 }
-
 interface Props {
   menuData: DataStructure;
 }
@@ -50,6 +44,23 @@ const AccordionMenu = ({ menuData }: Props) => {
     setMenuList(menuData.menu);
   }, [menuData]);
 
+  // 중간 및 하위 메뉴 아이템 업데이트 처리
+  const handleItemsUpdate = (updatedItems: MenuItem[], parentId?: number) => {
+    const newMenuList = menuList.map((group) => ({
+      ...group,
+      children: group.children.map((item) => {
+        if (item.id === parentId) {
+          return {
+            ...item,
+            children: updatedItems,
+          };
+        }
+        return item;
+      }),
+    }));
+    setMenuList(newMenuList);
+  };
+
   return (
     <nav className={styles.container}>
       <div className={styles.header}>
@@ -59,15 +70,15 @@ const AccordionMenu = ({ menuData }: Props) => {
         </Button>
       </div>
       <ul>
-        {menuList.map((group, groupIdx) => (
+        {menuList.map((group) => (
           <li
-            key={groupIdx}
-            data-index={groupIdx} // 이 부분 추가
+            key={group.id}
+            data-index={group.id} // 이 부분 추가
             className={styles.groupItem}
             draggable={editMode}
-            onDragStart={() => handleDragStart(groupIdx)}
+            onDragStart={(e) => handleDragStart(e, group.id)}
             onDragEnd={handleDragEnd}
-            onDragOver={(e) => handleDragOver(e, groupIdx)}
+            onDragOver={(e) => handleDragOver(e, group.id)}
           >
             <div className={styles.groupItemContent}>
               {editMode && (
@@ -78,11 +89,17 @@ const AccordionMenu = ({ menuData }: Props) => {
                   height={12}
                 />
               )}
-              <h3 className={styles.groupTitle}>{group.groupTitle}</h3>
+              <h3 className={styles.groupTitle}>{group.text}</h3>
             </div>
             <ul>
-              {group.children.map((item, itemIdx) => (
-                <AccordionItem key={itemIdx} item={item} editMode={editMode} />
+              {group.children.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  item={item}
+                  editMode={editMode}
+                  onItemsUpdate={handleItemsUpdate}
+                  parentId={group.id}
+                />
               ))}
             </ul>
           </li>
