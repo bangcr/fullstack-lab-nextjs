@@ -14,11 +14,16 @@
     "docker:logs": "docker logs nextjs-app"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^9.5.0",
+    "axios": "^1.8.4",
+    "ckeditor5": "^44.3.0",
     "crypto": "^1.0.1",
     "geist": "^1.3.1",
+    "nanoid": "^5.1.5",
     "next": "15.2.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

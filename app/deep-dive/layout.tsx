@@ -1,6 +1,6 @@
 import React from "react";
 import Inner from "../_components/layout/Inner";
-import SideBarContainer from "../_components/layout/SideBarContainer";
+import SideBarContainer from "../_components/Side-bar/SideBarContainer";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,12 +1,12 @@
 "use client";
 
 import styles from "./AccordionMenu.module.scss";
-import { AccordionItem } from "./AccordionItem";
+import { AccordionItem } from "@/app/_components/Side-bar/AccordionItem";
 import { useEffect, useState } from "react";
-import Button from "./atoms/Button";
 import Image from "next/image";
 import { IconMoveHandler } from "@/lib/constants/imagePath";
 import { useDraggableList } from "@/hooks/useDraggableList";
+import Button from "@/app/_components/atoms/Button";
 
 interface MenuItem {
   id: number;
