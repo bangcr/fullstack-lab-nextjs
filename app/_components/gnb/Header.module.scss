@@ -1,0 +1,104 @@
+@import "@/styles/variables";
+
+.header {
+  position: relative;
+  background-color: $pure-white;
+  height: $header-height;
+
+
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+
+  > div{
+    > a {
+      height: 2.8125rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > img {
+        width: 100%;
+        height: 100%;;
+      }
+    }
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navItem {
+  position: relative;
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 150%;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  color: $neutral-gray-60;
+  font-family: "GeistSans";
+
+  &:hover {
+    color: $neutral-gray-50;
+  }
+}
+
+.subMenu {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+
+  transform: translateX(-50%);
+  padding: 0.75rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: rgba(0,0,0,0);
+
+  > ul {
+    margin-top: calc($header-height + 0.5rem);
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: $pure-white;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0px rgba(155, 108, 114, 0.08);
+    width: 120%;
+  }
+}
+
+.navItem:hover .subMenu {
+  display: flex;
+}
+
+.subMenuItem {
+  display: flex;
+  align-items: start;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  color: $neutral-gray-60;
+  font-family: "GeistSans";
+  font-size: 0.8rem;
+
+  &:hover {
+    background-color: $neutral-gray-15;
+  }
+}

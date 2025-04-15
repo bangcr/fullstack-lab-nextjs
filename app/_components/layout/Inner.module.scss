@@ -1,0 +1,13 @@
+$max-width: 82.5rem;
+$padding-value: 1.25rem;
+
+.inner {
+    max-width: calc(#{$max-width} - #{$padding-value});
+    margin: 0 auto;
+    padding: 0 $padding-value;
+    // background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,44 @@
+.container {
+    min-height: 100%;
+    font-family: "GeistSans";
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuTitle {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.groupItem {
+    margin: 1rem 0;
+    
+    &.dragging {
+        opacity: 0.5;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+      }
+}
+
+.groupTitle {
+    padding: .25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.groupItemContent{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+
+
+
+
+
+

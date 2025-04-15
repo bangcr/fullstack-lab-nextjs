@@ -1,0 +1,13 @@
+@import "@/styles/variables";
+
+.container{
+    display: flex;
+    width: 100%;
+    height: calc(100dvh - $header-height);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

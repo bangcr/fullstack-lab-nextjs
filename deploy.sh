@@ -11,6 +11,6 @@ yarn add --dev eslint @eslint/eslintrc eslint-config-next
 yarn build
 
 # 도커 컨테이너 재시작
-docker restart nextjs-app
+yarn docker:restart
 
 echo "Deployment completed. Container restarted." 
